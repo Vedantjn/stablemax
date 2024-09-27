@@ -2,6 +2,25 @@ Deployed link:
 https://stablemax-project-vedant.vercel.app/
 
 
+## Screenshots
+
+Here are some screenshots of the application:
+
+1. Home Page
+   ![Home Page](src/screenshots/1.png)
+
+2. Writing the Prompt
+   ![Image Generation](src/screenshots/2.png)
+
+3. Output
+   ![Output](src/screenshots/3.png)
+
+3. All the results
+   ![Results Page](src/screenshots/4.png)
+
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -38,22 +57,17 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# We are using Neon db
 
-We are using Neon db
+# Initialize Prisma and create the prisma folder and .env file
+npx prisma init 
 
-Creates prisma folder and .env
-- npx prisma init 
+# Generate and apply database migrations
+npx prisma migrate dev --name init
 
-For generating Prisma Client
-- npx prisma migrate dev --name init
+# Generate Prisma Client
+npx prisma generate
 
-
-- npx prisma generate
-
-
-- psql "postgresql://stablemax_owner:ZGIgtmKS4u7U@ep-floral-recipe-a5wxtes4.us-east-2.aws.neon.tech/stablemax?sslmode=require"
-
-
-- 
-
-- 
+# Connect to the PostgreSQL database using psql
+# Replace the placeholders with your actual database credentials
+psql "postgresql://example_user:example_password@example-host.provider.com/example_db?sslmode=require"
