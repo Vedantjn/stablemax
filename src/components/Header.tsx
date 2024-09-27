@@ -24,24 +24,33 @@ export default function Header() {
   };
 
   return (
-    <div className="fixed top-0 w-full bg-black border-b border-white/60 p-3 z-50">
-      <div className="flex justify-between items-center">
-        <Link href="/">
-          <h2 className="font-bold text-xl sm:text-2xl">StableMax</h2>
-        </Link>
-        <div className="hidden sm:flex">
-          {renderAuthButtons()}
+    <header className="fixed top-0 left-0 right-0 bg-black border-b border-white/60 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex-shrink-0">
+            <Link href="/">
+              <h2 className="font-bold text-xl sm:text-2xl">StableMax</h2>
+            </Link>
+          </div>
+          <div className="hidden sm:block">
+            {renderAuthButtons()}
+          </div>
+          <div className="sm:hidden">
+            <button onClick={toggleMenu} className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+              <span className="sr-only">Open main menu</span>
+              <Menu size={24} />
+            </button>
+          </div>
         </div>
-        <button className="sm:hidden" onClick={toggleMenu}>
-          <Menu size={24} />
-        </button>
       </div>
       {isMenuOpen && (
-        <div className="mt-3 sm:hidden">
-          {renderAuthButtons()}
+        <div className="sm:hidden">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {renderAuthButtons()}
+          </div>
         </div>
       )}
-    </div>
+    </header>
   );
 
   function renderAuthButtons() {
@@ -55,7 +64,7 @@ export default function Header() {
       );
     } else {
       return (
-        <div className="flex flex-col sm:flex-row gap-3 items-center">
+        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
           <Button onClick={() => signOut()} variant="destructive" className="w-full sm:w-auto">
             Logout
           </Button>
